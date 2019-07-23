@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{E309F30F-A357-9A17-423B-9D1ADE2EBB1B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/TitleButton.cs">
+    <Files>
+      <File FileName="Assets/Script/RockPrefabMove.cs" Line="39" Column="6" />
+      <File FileName="Assets/Script/Player.cs" Line="14" Column="61" />
+      <File FileName="Assets/Script/Generator.cs" Line="42" Column="51" />
+      <File FileName="Assets/Script/CherryPrefabMove.cs" Line="25" Column="70" />
+      <File FileName="Assets/Script/GetCherry.cs" Line="25" Column="31" />
+      <File FileName="Assets/Script/GemPrefabMove.cs" Line="40" Column="48" />
+      <File FileName="Assets/Script/GetGem.cs" Line="25" Column="31" />
+      <File FileName="Assets/Script/Black.cs" Line="16" Column="9" />
+      <File FileName="Assets/Script/PlayerHitRock.cs" Line="22" Column="31" />
+      <File FileName="Assets/Script/GameOver.cs" Line="19" Column="6" />
+      <File FileName="Assets/Script/Score.cs" Line="30" Column="16" />
+      <File FileName="Assets/Script/ScoreText.cs" Line="8" Column="15" />
+      <File FileName="Assets/Script/HighScoreText.cs" Line="20" Column="48" />
+      <File FileName="Assets/Script/StartButton.cs" Line="23" Column="6" />
+      <File FileName="Assets/Script/TitleButton.cs" Line="22" Column="38" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="43177eb1-2a13-4a29-bc83-48c68a1465a8" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

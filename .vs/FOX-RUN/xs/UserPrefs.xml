@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{8ACE4247-87B8-312C-8B5C-0D35855927E1}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameOver.cs">
+    <Files>
+      <File FileName="Assets/Script/StagePrefab.cs" Line="23" Column="10" />
+      <File FileName="Assets/Script/Generator.cs" Line="119" Column="50" />
+      <File FileName="Assets/Script/Player.cs" Line="127" Column="1" />
+      <File FileName="Assets/Script/RockPrefabMove.cs" Line="41" Column="1" />
+      <File FileName="Assets/Script/GemPrefabMove.cs" Line="30" Column="69" />
+      <File FileName="Assets/Script/CherryPrefabMove.cs" Line="30" Column="69" />
+      <File FileName="Assets/Script/MoveObject.cs" Line="45" Column="70" />
+      <File FileName="Assets/Script/RecessionPrefab.cs" Line="39" Column="63" />
+      <File FileName="Assets/Script/RockMove.cs" Line="15" Column="1" />
+      <File FileName="Assets/Script/ScoreText.cs" Line="9" Column="26" />
+      <File FileName="Assets/Script/GameOver.cs" Line="33" Column="42" />
+      <File FileName="Assets/Script/StartButton.cs" Line="22" Column="41" />
+      <File FileName="Assets/Script/TimeDestroy.cs" Line="13" Column="28" />
+      <File FileName="Assets/Script/Destroy.cs" Line="7" Column="27" />
+      <File FileName="Assets/Script/Score.cs" Line="54" Column="45" />
+      <File FileName="Assets/Script/GetCherry.cs" Line="41" Column="30" />
+      <File FileName="Assets/Script/GetGem.cs" Line="41" Column="30" />
+      <File FileName="Assets/Script/StartText.cs" Line="21" Column="63" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="03e22044-f875-4a2f-acd8-7ec8c832468d" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
