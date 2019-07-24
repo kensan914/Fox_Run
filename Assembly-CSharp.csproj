@@ -86,9 +86,11 @@
     <Compile Include="Assets\Script\StartText.cs" />
     <Compile Include="Assets\Script\TimeDestroy.cs" />
     <Compile Include="Assets\Script\TitleButton.cs" />
+    <Compile Include="Assets\Script\TransformEffect.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberExample.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberRenderer.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\SpriteNumber.cs" />
+    <None Include="Assets\HsvUI.shader" />
     <None Include="Assets\SpriteNumberRenderer\Readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

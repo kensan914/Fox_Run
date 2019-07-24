@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    float rockRandTime, cherryRandTime, gemRandTime, tre1RandTime, tre2RandTime, pla1RandTime, pla2RandTime, vinRandTime, vin2RandTime, pla3RandTime, pla4RandTime;
-    public GameObject rock, cherry, gem, tre1, tre2, pla1, pla2, vin,vin2, pla3, pla4;
+    float rockRandTime, cherryRandTime, gemRandTime, tre1RandTime, tre2RandTime, pla1RandTime, pla2RandTime, vinRandTime, vin2RandTime, pla3RandTime, pla4RandTime,plantMonsterTime,foxTime;
+    public GameObject rock, cherry, gem, tre1, tre2, pla1, pla2, vin,vin2, pla3, pla4, plaMon,fox;
+    GameObject ply;
+    Player script;
+    bool canSpawn = true;
 
     void Start()
     {
@@ -20,6 +23,11 @@ public class Generator : MonoBehaviour
         StartCoroutine(vin2Gen());
         StartCoroutine(pla3Gen());
         StartCoroutine(pla4Gen());
+        StartCoroutine(plaMonGen());
+        StartCoroutine(foxGen());
+
+        ply = GameObject.Find("player");
+        script = ply.GetComponent<Player>();
     }
 
     IEnumerator rockGen()
@@ -28,8 +36,10 @@ public class Generator : MonoBehaviour
         {
             rockRandTime = Random.Range(0.5f, 2.0f);
             yield return new WaitForSeconds(rockRandTime);
-            SpawnObj(rock);
-
+            if (canSpawn)
+            {
+                SpawnObj(rock);
+            }
         }
     }
 
@@ -132,9 +142,56 @@ public class Generator : MonoBehaviour
         }
     }
 
+    IEnumerator plaMonGen()
+    {
+        while (true)
+        {
+            //plantMonsterTime = Random.Range(6.0f, 7.0f);
+            //yield return new WaitForSeconds(plantMonsterTime);
+            yield return new WaitForSeconds(100.0f);　             //のちに変更
+            canSpawn = false;
+            yield return new WaitForSeconds(1.3f);
+            SpawnObj(rock);
+            for (int i = 0; i < 2; i++)
+            {
+                yield return new WaitForSeconds(0.65f);
+                SpawnObj(rock);
+            }
+            SpawnObj(plaMon);
+            yield return new WaitForSeconds(0.7f);
+            SpawnObj(rock);
+            script.isPoison = true;
+            for(int i = 0; i < 13; i++)
+            {
+                rockRandTime = Random.Range(0.65f, 0.8f);
+                yield return new WaitForSeconds(rockRandTime);
+                SpawnObj(rock);
+            }
+            yield return new WaitForSeconds(2.0f);
+            SpawnObj(rock);
+            yield return new WaitForSeconds(0.65f);
+            SpawnObj(rock);
+            yield return new WaitForSeconds(0.65f);
+            SpawnObj(rock);
+            yield return new WaitForSeconds(0.7f);
+            script.isPoison = false;
+            SpawnObj(rock);
+            canSpawn = true;
+        }
+    }
+
+    IEnumerator foxGen()
+    {
+        while (true)
+        {
+            foxTime = Random.Range(6.0f, 7.0f);
+            yield return new WaitForSeconds(foxTime);
+            SpawnObj(fox);
+        }
+    }
+
     void SpawnObj(GameObject obj)
     {
         Instantiate(obj.gameObject, transform.position, Quaternion.identity);
     }
-
 }

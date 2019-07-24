@@ -37,6 +37,10 @@ public class MoveObject : MonoBehaviour
                 if (isPrefab) transform.position = new Vector3(13, 4.0f, 0);
                 transform.localScale = new Vector3(12.0f, 11.0f, 1);
                 break;
+            case 15:
+                if (isPrefab) transform.position = new Vector3(13, 0.6f, 0);
+                transform.localScale = new Vector3(6.0f, 6.0f, 1);
+                break;
             case 40:
                 if (isPrefab) transform.position = new Vector3(13, -5.6f, 0);
                 transform.localScale = new Vector3(13.0f, 11.0f, 1);
@@ -61,6 +65,7 @@ public class MoveObject : MonoBehaviour
                 break;
             case 8:
             case 9:
+            case 15:
                 transform.position -= new Vector3(0.1f, 0, 0);
                 break;
             case 10:

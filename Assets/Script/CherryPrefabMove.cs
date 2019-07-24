@@ -6,6 +6,11 @@ public class CherryPrefabMove : MonoBehaviour
 {
     int row;
     bool rockStay=false;
+    public bool isFox;
+    Vector3 pos;
+    private Animator animator;
+    GameObject TF;
+    bool isCalled;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +37,47 @@ public class CherryPrefabMove : MonoBehaviour
             default:
                 break;
         }
+        if (isFox)
+        {
+            Debug.Log("fox!!");
+            animator = GetComponent<Animator>();
+            TF = GameObject.Find("transformEffect");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         if (rockStay == false) {
+            pos = gameObject.transform.position;
             transform.position -= new Vector3(0.1f, 0, 0);
+            if(isFox && pos.x < 0)
+            {
+                if (!isCalled)
+                { 
+                    switch (row)
+                    {
+                        case 0:
+                            transform.localScale = new Vector3(-7.2f, 7.2f, 1);
+                            transform.position = new Vector3(0, -0.32f, 0);
+                            break;
+                        case 1:
+                            transform.localScale = new Vector3(-8, 8, 1);
+                            transform.position = new Vector3(0, -1.35f, 0);
+                            break;
+                        case 2:
+                            transform.localScale = new Vector3(-8.8f, 8.8f, 1);
+                            transform.position = new Vector3(0, -2.47f, 0);
+                            break;
+                        default:
+                            break;
+                    }
+                    GetComponent<Renderer>().material.SetFloat("_Sat", 0.4f);
+                    animator.SetBool("transform", true);
+                    TF.GetComponent<TransformEffect>().setTransform();
+                    isCalled = true;
+                }
+            }
         }
     }
 
