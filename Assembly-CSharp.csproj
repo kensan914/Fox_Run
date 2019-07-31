@@ -84,6 +84,7 @@
     <Compile Include="Assets\Script\TimeDestroy.cs" />
     <Compile Include="Assets\Script\TransformEffect.cs" />
     <Compile Include="Assets\ScriptUI\DestroyRanking.cs" />
+    <Compile Include="Assets\ScriptUI\Music.cs" />
     <Compile Include="Assets\ScriptUI\RankingButton.cs" />
     <Compile Include="Assets\ScriptUI\RankingForm.cs" />
     <Compile Include="Assets\ScriptUI\RecordButton.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\ScriptUI\StartButton.cs" />
     <Compile Include="Assets\ScriptUI\StartText.cs" />
     <Compile Include="Assets\ScriptUI\TitleButton.cs" />
+    <Compile Include="Assets\ScriptUI\TitlePlayerMove.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberExample.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberRenderer.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\SpriteNumber.cs" />

@@ -7,11 +7,15 @@ public class Score : MonoBehaviour
 {
     public　static int score;
     public Text scoreText;
+    public AudioClip cherrySound;
+    public AudioClip gemSound;
+    AudioSource audioSouce;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        audioSouce = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,11 +24,13 @@ public class Score : MonoBehaviour
         scoreText.text = score.ToString();
         if (GetCherry.getplayerTotch())
         {
+            audioSouce.PlayOneShot(cherrySound);
             StartCoroutine("TextAnimC");
             GetCherry.setplayerTotch();
         }
         if (GetGem.getplayerTotch())
         {
+            audioSouce.PlayOneShot(gemSound);
             StartCoroutine("TextAnimG");
             GetGem.setplayerTotch();
         }

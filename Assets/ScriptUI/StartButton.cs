@@ -19,6 +19,8 @@ public class StartButton : MonoBehaviour
 
     public void OnClick()
     {
+        GameObject obj = GameObject.Find("BGMsource");
+        Destroy(obj);
         SceneManager.LoadScene("Start");
     }
 }

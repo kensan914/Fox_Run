@@ -13,6 +13,8 @@ public class CherryPrefabMove : MonoBehaviour
     bool isCalled;
     GameObject gen;
     Generator script;
+    public AudioClip ninjaSound;
+    AudioSource audioSouce;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,7 @@ public class CherryPrefabMove : MonoBehaviour
         {
             animator = GetComponent<Animator>();
             TF = GameObject.Find("transformEffect");
+            audioSouce = GetComponent<AudioSource>();
         }
     }
 
@@ -85,6 +88,7 @@ public class CherryPrefabMove : MonoBehaviour
                         default:
                             break;
                     }
+                    audioSouce.PlayOneShot(ninjaSound);
                     GetComponent<Renderer>().material.SetFloat("_Sat", 0.4f);
                     animator.SetBool("transform", true);
                     TF.GetComponent<TransformEffect>().setTransform();

@@ -6,7 +6,7 @@ public class PlayerHitRock : MonoBehaviour
 {
     public bool HitMassage; 
     bool rockTotch = false,isntTotched = true;
-    int count;          //
+    //int count;
 
     // Start is called before the first frame update
     void Start()

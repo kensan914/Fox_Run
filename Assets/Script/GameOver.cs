@@ -10,6 +10,8 @@ public class GameOver : MonoBehaviour
     GameObject phr;
     PlayerHitRock script;
     public static bool isGameOver=false;
+    public AudioClip sound;
+    AudioSource audioSouce;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class GameOver : MonoBehaviour
         phr = GameObject.Find("player");
         script = phr.GetComponent<PlayerHitRock>();
         isGameOver = false;
+        audioSouce = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,9 @@ public class GameOver : MonoBehaviour
         {
             isGameOver = true;
             script.HitMassage = false;
+            audioSouce.PlayOneShot(sound);
+            GameObject obj = GameObject.Find("BGMsource");
+            Destroy(obj);
             StartCoroutine("GameOverScene");
             StartCoroutine("Recession");
             StartCoroutine("Black");

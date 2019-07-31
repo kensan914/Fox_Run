@@ -8,7 +8,10 @@ public class MoveObject : MonoBehaviour
     public bool isPrefab;
     GameObject gen;
     Generator script;
-    public bool ghostgettingReady; 
+    public bool ghostgettingReady;
+    public AudioClip ghostSound;
+    public AudioClip gusSound;
+    AudioSource audioSouce;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +44,13 @@ public class MoveObject : MonoBehaviour
                 transform.localScale = new Vector3(12.0f, 11.0f, 1);
                 break;
             case 15:
+                audioSouce = GetComponent<AudioSource>();
+                audioSouce.PlayOneShot(gusSound);
                 if (isPrefab) transform.position = new Vector3(13, 0.6f, 0);
                 transform.localScale = new Vector3(6.0f, 6.0f, 1);
                 break;
             case 39:
+                audioSouce = GetComponent<AudioSource>();
                 if (isPrefab) transform.position = new Vector3(-13, -4.0f, 0);
                 transform.localScale = new Vector3(7.0f, 7.0f, 1);
                 StartCoroutine("MoveGhost");
@@ -95,6 +101,7 @@ public class MoveObject : MonoBehaviour
 
     IEnumerator MoveGhost()
     {
+        audioSouce.PlayOneShot(ghostSound);
         ghostgettingReady = true;
         gen = GameObject.Find("Administrator");
         script = gen.GetComponent<Generator>();
