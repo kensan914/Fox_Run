@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8537854243354146952}
   - component: {fileID: 2832715092227885592}
   - component: {fileID: 2499773914122018067}
-  - component: {fileID: 143860140739046495}
+  - component: {fileID: 5348620130360906707}
   m_Layer: 0
   m_Name: rockPrefab
   m_TagString: rock tag
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj: {fileID: 8537854243354146953}
---- !u!60 &143860140739046495
+--- !u!60 &5348620130360906707
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

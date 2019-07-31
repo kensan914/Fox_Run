@@ -38,6 +38,9 @@ public class RecessionPrefab : MonoBehaviour
                 case 12:
                     obj.transform.position += new Vector3(0.12f, 0, 0);
                     break;
+                case 39:
+                    obj.transform.position -= new Vector3(0.1f, 0, 0);
+                    break;
                 case 40:
                     obj.transform.position += new Vector3(0.1f, 0, 0);
                     break;

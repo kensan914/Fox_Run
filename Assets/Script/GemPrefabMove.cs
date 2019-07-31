@@ -6,10 +6,14 @@ public class GemPrefabMove : MonoBehaviour
 {
     int row;
     bool rockStay = false,cherryStay = false;
+    GameObject gen;
+    Generator script;
 
     // Start is called before the first frame update
     void Start()
     {
+        gen = GameObject.Find("Administrator");
+        script = gen.GetComponent<Generator>();
         gameObject.SetActive(true);
         row = Random.Range(0, 3);
         switch (row)
@@ -20,9 +24,19 @@ public class GemPrefabMove : MonoBehaviour
                 gameObject.GetComponent<Renderer>().sortingOrder = 31;
                 break;
             case 1:
-                transform.localScale = new Vector3(6, 6, 1);
-                transform.position = new Vector3(12, -1.95f, 0);
-                gameObject.GetComponent<Renderer>().sortingOrder = 32;
+                if (!script.magicDoing)
+                {
+                    transform.localScale = new Vector3(6, 6, 1);
+                    transform.position = new Vector3(12, -1.95f, 0);
+                    gameObject.GetComponent<Renderer>().sortingOrder = 32;
+                }
+                else
+                {
+                    transform.localScale = new Vector3(6, 6, 1);
+                    transform.position = new Vector3(12, -1.95f, 0);
+                    gameObject.GetComponent<Renderer>().sortingOrder = 32;
+                    Destroy(gameObject);
+                }
                 break;
             case 2:
                 transform.localScale = new Vector3(7, 7, 1);

@@ -6,11 +6,14 @@ public class MoveObject : MonoBehaviour
 {
     public int layer;
     public bool isPrefab;
+    GameObject gen;
+    Generator script;
+    public bool ghostgettingReady; 
 
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Renderer>().sortingOrder = layer;
+        if(layer!=10 && layer!=12)gameObject.GetComponent<Renderer>().sortingOrder = layer;
         switch (layer)
         {
             case 6:
@@ -40,6 +43,11 @@ public class MoveObject : MonoBehaviour
             case 15:
                 if (isPrefab) transform.position = new Vector3(13, 0.6f, 0);
                 transform.localScale = new Vector3(6.0f, 6.0f, 1);
+                break;
+            case 39:
+                if (isPrefab) transform.position = new Vector3(-13, -4.0f, 0);
+                transform.localScale = new Vector3(7.0f, 7.0f, 1);
+                StartCoroutine("MoveGhost");
                 break;
             case 40:
                 if (isPrefab) transform.position = new Vector3(13, -5.6f, 0);
@@ -83,5 +91,39 @@ public class MoveObject : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator MoveGhost()
+    {
+        ghostgettingReady = true;
+        gen = GameObject.Find("Administrator");
+        script = gen.GetComponent<Generator>();
+        Vector3 pos;
+        while (true)
+        {
+            transform.position += new Vector3(0.2f, 0, 0);
+            pos = gameObject.transform.position;
+            if (pos.x > 13) break;
+            yield return null;
+        }
+        transform.position = new Vector3(13, 3.5f, 0);
+        transform.localScale = new Vector3(-6.0f, 6.0f, 1);
+        ghostgettingReady = false;
+        while (true)
+        {
+            transform.position -= new Vector3(0.2f, 0, 0);
+            pos = gameObject.transform.position;
+            if (pos.x < 6.0f) break;
+            yield return null;
+        }
+        while (script.getisAppeareedEnemy()) yield return null;
+        while (true)
+        {
+            transform.position += new Vector3(0.2f, 0, 0);
+            pos = gameObject.transform.position;
+            if (pos.x >13) break;
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }
