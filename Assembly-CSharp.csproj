@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8ACE4247-87B8-312C-8B5C-0D35855927E1}</ProjectGuid>
+    <ProjectGuid>{8649C254-9BCF-4C2E-244D-DADE81C0AC50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -83,8 +83,11 @@
     <Compile Include="Assets\Script\StandBy.cs" />
     <Compile Include="Assets\Script\TimeDestroy.cs" />
     <Compile Include="Assets\Script\TransformEffect.cs" />
+    <Compile Include="Assets\ScriptUI\Conversion.cs" />
     <Compile Include="Assets\ScriptUI\DestroyRanking.cs" />
+    <Compile Include="Assets\ScriptUI\HowToPlayButton.cs" />
     <Compile Include="Assets\ScriptUI\Music.cs" />
+    <Compile Include="Assets\ScriptUI\QuitButton.cs" />
     <Compile Include="Assets\ScriptUI\RankingButton.cs" />
     <Compile Include="Assets\ScriptUI\RankingForm.cs" />
     <Compile Include="Assets\ScriptUI\RecordButton.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Assets\ScriptUI\StartText.cs" />
     <Compile Include="Assets\ScriptUI\TitleButton.cs" />
     <Compile Include="Assets\ScriptUI\TitlePlayerMove.cs" />
+    <Compile Include="Assets\ScriptUI\UIresolutionForce.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberExample.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\NumberRenderer.cs" />
     <Compile Include="Assets\SpriteNumberRenderer\Scripts\SpriteNumber.cs" />
@@ -101,19 +105,19 @@
     <None Include="Assets\Gothicvania Cemetery Artwork\about.txt" />
     <None Include="Assets\SpriteNumberRenderer\Readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -320,13 +324,13 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/toriumi/Unity/FOX-RUN/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/toriumi/Unity/FOX-RUN_lita/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

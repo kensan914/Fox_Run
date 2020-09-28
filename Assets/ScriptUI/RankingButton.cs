@@ -19,6 +19,6 @@ public class RankingButton : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.LoadScene("ranking");
+        SceneManager.LoadScene("Ranking");
     }
 }

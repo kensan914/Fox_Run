@@ -24,7 +24,7 @@ public class RankingForm : MonoBehaviour
         {
             gameObject.SetActive(true);
             rank = RankJudge(scoreList);
-            rankingText.gameObject.GetComponent<Text>().text = "おめでとうございます！今回あなたはランキング" + rank.ToString() + "位に輝きました。ニックネームを入力してランキングに記録しましょう!";
+            rankingText.gameObject.GetComponent<Text>().text = "おめでとう！君のスコアはランキング" + rank.ToString() + "位にかがやいたよ！今すぐニックネームを入力してランキングにとうろくしよう！";
         }
         else
         {
@@ -85,19 +85,23 @@ public class RankingForm : MonoBehaviour
     List<string> UpdateNameList(List<string> nameList, int rank, string newName)
     {
         List<string> newNameList = new List<string>();
-        if (newName.Equals(null)) newName = "名無し";
+        if (newName.Equals("")) newName = "名無し";
         if (nameList.Count == 0)
         {
             newNameList.Add(newName);
             return newNameList;
         }
-        for(int i = 0; i < nameList.Count + 1; i++)
+        if (nameList.Count == 10)
         {
+            nameList.RemoveAt(9);
+        }
+        for(int i = 0; i < nameList.Count + 1; i++)
+        {   
             if (rank == i + 1)
             {
                 newNameList.Add(newName);
             }
-            if(i != nameList.Count && i != nameList.Count-1) newNameList.Add(nameList[i]);
+            if(i != nameList.Count) newNameList.Add(nameList[i]);
         }
         return newNameList;
     }
@@ -110,13 +114,17 @@ public class RankingForm : MonoBehaviour
             newScoreList.Add(score);
             return newScoreList;
         }
+        if (scoreList.Count == 10)
+        {   
+            scoreList.RemoveAt(9);
+        }
         for (int i = 0; i < scoreList.Count + 1; i++)
         {
             if (rank == i + 1)
             {
                 newScoreList.Add(score);
             }
-            if (i != scoreList.Count && i != scoreList.Count-1) newScoreList.Add(scoreList[i]);
+            if (i != scoreList.Count) newScoreList.Add(scoreList[i]);
         }
         return newScoreList;
     }

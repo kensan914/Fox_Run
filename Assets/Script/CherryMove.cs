@@ -10,7 +10,6 @@ public class CherryMove : MonoBehaviour
     void Start()
     {
         row = Random.Range(0, 3);
-        //Debug.Log("RandomValue is " + row);
         switch (row)
         {
             case 0:

@@ -164,8 +164,12 @@ public class Generator : MonoBehaviour
                     level = 3;
                 }else if(currentScore >= 90 && currentScore < 120){
                     level = 4;
-                }else if(currentScore >= 120){
+                }else if(currentScore >= 120 && currentScore < 150)
+                {
                     level = 5;
+                }else if(currentScore > 150)
+                {
+                    level = 6;
                 }
                 enemyGenCount++;
                 previousScore = currentScore;
@@ -185,7 +189,7 @@ public class Generator : MonoBehaviour
                     case 2:
                     case 3:
                     case 4:
-                        if (level == 5) enemyGenByProbability(100.0f);
+                        if (level == 5 || level == 6) enemyGenByProbability(100.0f);
                         break;
                     case 5:
                         enemyGenByProbability(5.0f * level);
@@ -240,13 +244,31 @@ public class Generator : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         SpawnObj(rock);
         script1.isPoison = true;
-        for (int i = 0; i < 13; i++)
+        if (level <= 5)
         {
-            rockRandTime = Random.Range(0.65f, 0.8f);
-            yield return new WaitForSeconds(rockRandTime);
-            SpawnObj(rock);
+            for (int i = 0; i < 13; i++)
+            {
+                rockRandTime = Random.Range(0.65f, 0.8f);
+                yield return new WaitForSeconds(rockRandTime);
+                SpawnObj(rock);
+            }
+        }else if (level == 6)
+        {
+            int rockRandNum = Random.Range(5, 15);
+            for (int i = 0; i < rockRandNum; i++)
+            {
+                rockRandTime = Random.Range(0.4f, 0.8f);
+                yield return new WaitForSeconds(rockRandTime);
+                SpawnObj(rock);
+            }
         }
-        yield return new WaitForSeconds(2.0f);
+        if (level <= 5)
+        {
+            yield return new WaitForSeconds(2.0f);
+        }else if (level == 6)
+        {
+            yield return new WaitForSeconds(1.3f);
+        }
         SpawnObj(rock);
         yield return new WaitForSeconds(0.65f);
         SpawnObj(rock);
@@ -282,17 +304,34 @@ public class Generator : MonoBehaviour
         script2 = gst.GetComponent<MoveObject>();
         while (script2.ghostgettingReady) yield return null;
         int ghostRand = Random.Range(1, 4);
-        switch (ghostRand)
+        if (level <= 5)
         {
-            case 1:
-                StartCoroutine("rockGenByGhost1");
-                break;
-            case 2:
-                StartCoroutine("rockGenByGhost2");
-                break;
-            case 3:
-                StartCoroutine("rockGenByGhost3");
-                break;
+            switch (ghostRand)
+            {
+                case 1:
+                    StartCoroutine("rockGenByGhost1");
+                    break;
+                case 2:
+                    StartCoroutine("rockGenByGhost2");
+                    break;
+                case 3:
+                    StartCoroutine("rockGenByGhost3");
+                    break;
+            }
+        }else if (level == 6)
+        {
+            switch (ghostRand)
+            {
+                case 1:
+                    StartCoroutine("rockGenByGhost1_2");
+                    break;
+                case 2:
+                    StartCoroutine("rockGenByGhost2_2");
+                    break;
+                case 3:
+                    StartCoroutine("rockGenByGhost3_2");
+                    break;
+            }
         }
         while (magicDoing) yield return null;
         yield return new WaitForSeconds(1.5f);
@@ -350,7 +389,7 @@ public class Generator : MonoBehaviour
                 SpawnMagicRock(1);
                 yield return new WaitForSeconds(0.3f);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.55f);
             for (int j = 0; j < 4; j++)
             {
                 SpawnMagicRock(1);
@@ -369,6 +408,80 @@ public class Generator : MonoBehaviour
         }
         magicDoing = false;
     }
+
+    IEnumerator rockGenByGhost1_2()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            float magicRand1 = Random.Range(0.76f, 0.9f);
+            float magicRand2 = Random.Range(0.77f, 0.9f);
+            SpawnMagicRock(0);
+            SpawnMagicRock(1);
+            yield return new WaitForSeconds(magicRand1);
+            SpawnMagicRock(1);
+            SpawnMagicRock(2);
+            yield return new WaitForSeconds(magicRand2);
+        }
+        magicDoing = false;
+    }
+
+    IEnumerator rockGenByGhost2_2()
+    {
+        int magicRand;
+        for (int i = 0; i < 8; i++)
+        {
+            magicRand = Random.Range(0, 2);
+            float magicRand1 = Random.Range(0.51f, 0.7f);
+            float magicRand2 = Random.Range(0.51f, 0.7f);
+            if (magicRand == 0)
+            {
+                SpawnMagicRock(0);
+                SpawnMagicRock(1);
+            }
+            else
+            {
+                SpawnMagicRock(1);
+                SpawnMagicRock(2);
+            }
+            yield return new WaitForSeconds(magicRand1);
+            SpawnMagicRock(0);
+            SpawnMagicRock(2);
+            yield return new WaitForSeconds(magicRand2);
+        }
+        magicDoing = false;
+    }
+
+    IEnumerator rockGenByGhost3_2()
+    {
+        int magicRand;
+        for (int i = 0; i < 5; i++)
+        {
+            magicRand = Random.Range(0, 2);
+            for (int j = 0; j < 5; j++)
+            {
+                SpawnMagicRock(1);
+                yield return new WaitForSeconds(0.3f);
+            }
+            yield return new WaitForSeconds(0.5f);
+            for (int j = 0; j < 5; j++)
+            {
+                SpawnMagicRock(1);
+                yield return new WaitForSeconds(0.3f);
+            }
+            if (magicRand == 0)
+            {
+                SpawnMagicRock(0);
+                SpawnMagicRock(1);
+            }
+            else
+            {
+                SpawnMagicRock(1);
+                SpawnMagicRock(2);
+            }
+        }
+        magicDoing = false;
+    }
+
 
     void SpawnObj(GameObject obj)
     {
@@ -425,5 +538,9 @@ public class Generator : MonoBehaviour
     public bool getisAppeareedEnemy()
     {
         return isAppearedEnemy;
+    }
+    public int getLevel()
+    {
+        return level;
     }
 }

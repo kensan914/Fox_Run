@@ -67,7 +67,9 @@ public class CherryPrefabMove : MonoBehaviour
         if (rockStay == false) {
             pos = gameObject.transform.position;
             transform.position -= new Vector3(0.1f, 0, 0);
-            if(isFox && pos.x < 0)
+
+
+            if (script.getLevel()<=5 && isFox && pos.x < 0)
             {
                 if (!isCalled)
                 { 
@@ -84,6 +86,33 @@ public class CherryPrefabMove : MonoBehaviour
                         case 2:
                             transform.localScale = new Vector3(-8.8f, 8.8f, 1);
                             transform.position = new Vector3(0, -2.47f, 0);
+                            break;
+                        default:
+                            break;
+                    }
+                    audioSouce.PlayOneShot(ninjaSound);
+                    GetComponent<Renderer>().material.SetFloat("_Sat", 0.4f);
+                    animator.SetBool("transform", true);
+                    TF.GetComponent<TransformEffect>().setTransform();
+                    isCalled = true;
+                }
+            }else if(script.getLevel() == 6 && isFox && pos.x < -2)
+            {
+                if (!isCalled)
+                {
+                    switch (row)
+                    {
+                        case 0:
+                            transform.localScale = new Vector3(-7.2f, 7.2f, 1);
+                            transform.position = new Vector3(-2, -0.32f, 0);
+                            break;
+                        case 1:
+                            transform.localScale = new Vector3(-8, 8, 1);
+                            transform.position = new Vector3(-2, -1.35f, 0);
+                            break;
+                        case 2:
+                            transform.localScale = new Vector3(-8.8f, 8.8f, 1);
+                            transform.position = new Vector3(-2, -2.47f, 0);
                             break;
                         default:
                             break;
